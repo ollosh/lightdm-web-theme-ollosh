@@ -1,0 +1,8 @@
+* {
+    font-family: Lato;
+    --main-bg-color: #0e191b;
+    --main-fg-color: #ebfff6;
+    --secondary-bg-color: #253234;
+    --main-alert-color: #eb5e55;
+    --main-success-color: #008f51;
+}

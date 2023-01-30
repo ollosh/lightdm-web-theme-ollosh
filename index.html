@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="style.css" class="style" />
+    <link rel="stylesheet"
+          href="../../_vendor/material-icons/css/materialdesignicons.min.css"
+          onerror="this.href='../_vendor/material-icons/css/materialdesignicons.min.css'"
+          class="style"/>
+
+    <title>Lightdm web theme - ollosh</title>
+</head>
+<body class="landing">
+    <div id="landing-page"></div>
+    <div id="login-page">
+        <div id="content">
+            <form id="login-form">
+                <div class="container">
+                    <h2>
+                        <span id="user">ollosh</span> / <span id="desktop-env">i3</span>
+                    </h2>
+                    <span id="status">
+                    </span>
+                </div>
+                <div class="form-field" id="password">
+                    <input type="password"
+                           placeholder="Password"
+                           autofocus="true" />
+                    <i class="mdi mdi-alert-circle" title="Caps Lock is on"></i>
+                </div>
+            </form>
+            <div id="power-menu">
+                <div class="container">
+                    <div id="hibernate" class="power-button">
+                        <div>
+                            <i class="mdi mdi-pause-circle-outline"></i>
+                        </div>
+                        <h4>Hibernate</h4>
+                    </div>
+                    <div id="restart" class="power-button">
+                        <div>
+                            <i class="mdi mdi-restart"></i>
+                        </div>
+                        <h4>Restart</h4>
+                    </div>
+                    <div id="shutdown" class="power-button">
+                        <div>
+                            <i class="mdi mdi-power"></i>
+                        </div>
+                        <h4>Shut down</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="col"></div>
+            <div class="col middle">
+                <span id="date"></span>
+                <i class="mdi mdi-shuriken"></i>
+                <span id="time"></span>
+            </div>
+            <div class="col right">
+                <span id="battery"></span>
+                <span id="brightness"></span>
+                <span id="power-toggle"><i class="mdi mdi-power"></i></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>

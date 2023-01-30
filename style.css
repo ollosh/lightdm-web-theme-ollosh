@@ -1,0 +1,248 @@
+@import "variables.css";
+
+@keyframes spin {
+    0% { transform:rotate(0deg); }
+    100% { transform:rotate(359deg); }
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*********
+ * PAGES *
+ *********/
+body {
+    background-image: url("/usr/share/backgrounds/ollosh/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#landing-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--main-bg-color);
+    opacity: 1;
+    transition: opacity 1.5s ease-out;
+    z-index: 2;
+}
+
+body.login #landing-page {
+    z-index: -1;
+    opacity: 0;
+}
+
+#login-page {
+    width: 100%;
+    height: 100%;
+}
+
+body.login #login-page {
+    opacity: 1;
+}
+
+body.login #login-page {
+    z-index: 1;
+}
+
+/***********
+ * CONTENT *
+ ***********/
+body.login #content {
+    opacity: 1;
+}
+
+#content {
+    background-color: var(--main-bg-color);
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    color: var(--main-fg-color);
+    width: 400px;
+    opacity: 0;
+    transition: opacity .2s ease-in;
+}
+
+
+/**************
+ * LOGIN-FORM *
+ **************/
+#login-form {
+    z-index: 1;
+    position: relative;
+}
+
+#login-form h2 {
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+input {
+    background-color: #999;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--main-fg-color);
+    font-size: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    font-style: italic;
+    color: var(--main-fg-color);
+}
+
+input:focus {
+    outline: none;
+}
+
+input:disabled {
+    opacity: 0.8;
+}
+
+#password {
+    position: relative;
+}
+
+#password i {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    font-size: 30px;
+    opacity: 0;
+    z-index: 0;
+}
+
+#password.caps-lock i {
+    opacity: 1;
+    z-index: 1;
+}
+
+#status {
+    font-size: 24px;
+}
+
+#status i {
+    display: block;
+}
+
+#status.success {
+    color: var(--main-success-color);
+}
+
+#status.alert {
+    color: var(--main-alert-color);
+}
+
+#status.spinning i {
+    animation: 1.5s infinite linear normal spin;
+}
+
+/**************
+ * POWER-MENU *
+ **************/
+#power-menu {
+    opacity: 0;
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+#content.power-menu #power-menu {
+    opacity: 1;
+    z-index: 1;
+}
+
+#content.power-menu #login-form {
+    opacity: 0;
+    z-index: 0;
+}
+
+#power-menu,
+#login-form {
+    transition: opacity 0.3s ease-in;
+}
+
+#power-menu i {
+    font-size: 24px;
+}
+
+#power-menu .container {
+    justify-content: space-around;
+}
+
+#power-menu .power-button {
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 80px;
+    border-radius: 5px;
+}
+
+#power-menu .power-button:hover {
+    background-color: var(--secondary-bg-color);
+    cursor: pointer;
+}
+
+#power-menu h4 {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+/**********
+ * FOOTER *
+ **********/
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--main-bg-color);
+    width: 100%;
+    color: var(--main-fg-color);
+    padding: 12px 15px 14px;
+    box-sizing: border-box;
+    font-size: 17px;
+    opacity: 0;
+    transition: opacity .5s;
+    z-index: 2;
+}
+
+body.login footer {
+    opacity: 1;
+}
+
+footer .col {
+    min-width: 300px;
+    text-align: right;
+}
+
+footer .col.middle {
+    text-align: center;
+}
+
+footer .col.right span {
+    margin-left: 22px;
+}
+
+#power-toggle {
+    font-size: 20px;
+}
+
+#power-toggle:hover {
+    cursor: pointer;
+}
