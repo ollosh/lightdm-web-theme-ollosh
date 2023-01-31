@@ -164,15 +164,19 @@ function authentication() {
 
             if (loginAttempts === 0) {
                 statusField.innerHTML = '<i class="mdi mdi-account-cancel" title="Wrong password was entered ' + MAX_LOGINS + ' times. Wait for 10 minutes and try again."></i>'
+
+                //wait 10 minutes before enabling the form again
+                await delay(1000 * 60 * 10)
+
+                statusField.classList.remove('alert')
+                statusField.innerHTML = ''
             } else {
                 statusField.innerHTML = '<i class="mdi mdi-account-alert" title="Wrong password. Tries left: ' + loginAttempts + '"></i>'
-
-                passwordInput.disabled = false
-                passwordInput.value = ''
-                passwordInput.focus()
             }
 
-
+            passwordInput.disabled = false
+            passwordInput.value = ''
+            passwordInput.focus()
         }
     });
 
