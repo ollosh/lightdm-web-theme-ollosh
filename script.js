@@ -112,12 +112,12 @@ function addPowerMenu() {
         document.querySelector('#content').classList.toggle('power-menu')
     })
 
-    document.querySelector('#hibernate').addEventListener('click', async () => {
-        powerMenuElement.innerHTML = 'Hibernating the system...'
+    document.querySelector('#suspend').addEventListener('click', async () => {
+        powerMenuElement.innerHTML = 'Suspending the system...'
 
         await delay(2000)
 
-        window.lightdm.hibernate()
+        window.lightdm.suspend()
     })
 
     document.querySelector('#restart').addEventListener('click', async () => {
