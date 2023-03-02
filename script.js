@@ -106,22 +106,24 @@ function updateDateTime() {
 }
 
 function addPowerMenu() {
-    const powerMenuElement = document.querySelector('#power-menu .container')
-
     document.querySelector('#power-toggle').addEventListener('click', () => {
-        document.querySelector('#content').classList.toggle('power-menu')
+        togglePower()
     })
 
     document.querySelector('#suspend').addEventListener('click', async () => {
-        powerMenuElement.innerHTML = 'Suspending the system...'
+        showPowerMessage('Suspending the system...')
 
         await delay(2000)
 
         window.lightdm.suspend()
+
+        await delay(5000)
+
+        await resetToLanding()
     })
 
     document.querySelector('#restart').addEventListener('click', async () => {
-        powerMenuElement.innerHTML = 'Restarting the system...'
+        showPowerMessage('Restarting the system...')
 
         await delay(2000)
 
@@ -129,7 +131,7 @@ function addPowerMenu() {
     })
 
     document.querySelector('#shutdown').addEventListener('click', async () => {
-        powerMenuElement.innerHTML = 'Shutting down the system...'
+        showPowerMessage('Shutting down the system...')
 
         await delay(2000)
 
@@ -222,4 +224,36 @@ function getDesktopEnv() {
 
 function getUser() {
     return window.lightdm.users[0]
+}
+
+function togglePower() {
+    document.querySelector('#content').classList.toggle('power-menu')
+}
+
+function showPowerMessage(message) {
+    document.querySelector('#power-menu .power-options').style.display = 'none'
+
+    const powerMessageElement = document.querySelector('#power-menu .power-message')
+
+    powerMessageElement.innerHTML = message
+    powerMessageElement.style.display = 'block'
+}
+
+async function resetToLanding() {
+    togglePower()
+
+    await delay(300)
+
+    document.querySelector('#power-menu .power-options').style.display = ''
+    document.querySelector('#power-menu .power-message').style.display = 'none'
+
+    const passwordInput = document.querySelector("#password input")
+    const statusField = document.querySelector('#status')
+
+    passwordInput.disabled = false
+    passwordInput.value = ''
+    passwordInput.focus()
+
+    statusField.classList.remove('alert')
+    statusField.innerHTML = ''
 }

@@ -204,6 +204,10 @@ input:disabled {
     font-weight: normal;
 }
 
+#power-menu .power-message {
+    display: none;
+}
+
 /**********
  * FOOTER *
  **********/
