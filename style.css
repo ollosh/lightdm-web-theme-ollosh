@@ -86,7 +86,7 @@ body.login #content {
 }
 
 input {
-    background-color: #999;
+    background-color: var(--secondary-bg-color);
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -159,6 +159,7 @@ input:disabled {
     width: 100%;
     transform: translateY(-50%);
     text-align: center;
+    color: var(--main-fg-color);
 }
 
 #content.power-menu #power-menu {
