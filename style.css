@@ -1,5 +1,9 @@
 @import "variables.css";
 
+* {
+    --backdrop-color: #0e191b;
+}
+
 @keyframes spin {
     0% { transform:rotate(0deg); }
     100% { transform:rotate(359deg); }
@@ -26,7 +30,7 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: var(--main-bg-color);
+    background-color: var(--backdrop-color);
     opacity: 1;
     transition: opacity 1.5s ease-out;
     z-index: 2;
